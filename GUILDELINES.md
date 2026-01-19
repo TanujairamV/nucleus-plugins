@@ -71,4 +71,4 @@ To distribute your plugin under the shell's database(this repo or other repos).
 will win.
 
 > [!CAUTION]
-> The plugin system is currently being developed so the automatic installtion of plugins has not been implemented in the shell yet.
+> The plugin system is currently being developed so the automatic installation of plugins has not been implemented in the shell yet.
