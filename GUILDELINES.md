@@ -69,3 +69,6 @@ To distribute your plugin under the shell's database(this repo or other repos).
 
 * Other custom plugin repo's can be created by the community containing other plugins. If the repository is good enough and has multiple cool plugins it will be added in the plugin fetch utility as a [community] repository. Also note that the repo's should not contain multiple plugins with the same id. If present the repository to have being fetched the same pluginId
 will win.
+
+> [!CAUTION]
+> The plugin system is currently being developed so the automatic installtion of plugins has not been implemented in the shell yet.
