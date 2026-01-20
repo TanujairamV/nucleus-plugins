@@ -4,7 +4,7 @@ This document will explain how to create your own plugin.
 
 ## Plugin Structure
 * All the plugins are stored/installed at `~/.config/nucleus-shell/plugins`
-* Each plugin should consist of these three files: `Main.qml`, `PluginConfigData.qml`, `Settings.qml`, `preview.png/jpg/jpeg` and `manifest.json`
+* Each plugin should consist of these five files: `Main.qml`, `PluginConfigData.qml`, `Settings.qml`, `preview.png/jpg/jpeg` and `manifest.json`
 * If any of these files are not present the plugin will not work or break.
 
 ## File Data
@@ -83,6 +83,65 @@ Scope {
 }
 ```
 
+All the supported override functions: 
+```qml
+    // Power menu
+    property url powerMenu:
+        Qt.resolvedUrl("../modules/interface/powermenu/Powermenu.qml")
+    function overridePowerMenu(path) {
+        powerMenu = path
+    }
+
+    // Bar
+    property url bar:
+        Qt.resolvedUrl("../modules/interface/bar/Bar.qml")
+    function overrideBar(path) {
+        bar = path
+    }
+
+    // App launcher
+    property url launcher:
+        Qt.resolvedUrl("../modules/interface/launcher/Launcher.qml")
+    function overrideLauncher(path) {
+        launcher = path
+    }
+
+    // Lock screen
+    property url lockScreen:
+        Qt.resolvedUrl("../modules/interface/lockscreen/LockScreen.qml")
+    function overrideLockScreen(path) {
+        lockScreen = path
+    }
+
+    // Desktop background / wallpaper handler
+    property url background:
+        Qt.resolvedUrl("../modules/interface/background/Background.qml")
+    function overrideBackground(path) {
+        background = path
+    }
+
+    // Notifications UI
+    property url notifications:
+        Qt.resolvedUrl("../modules/interface/notifications/Notifications.qml")
+    function overrideNotifications(path) {
+        notifications = path
+    }
+
+    // Global overlays (OSD, volume, brightness, etc.)
+    property url overlays:
+        Qt.resolvedUrl("../modules/interface/overlays/Overlays.qml")
+    function overrideOverlays(path) {
+        overlays = path
+    }
+
+    // Right sidebar / tray extensions
+    property url sidebarRight:
+        Qt.resolvedUrl("../modules/interface/sidebarRight/SidebarRight.qml")
+    function overrideSidebarRight(path) {
+        sidebarRight = path
+    }
+```
+
 ## Plugin Distribution
 To distribute your plugin under the shell's database(this repo or other repos).
 
@@ -90,6 +149,3 @@ To distribute your plugin under the shell's database(this repo or other repos).
 
 * Other custom plugin repo's can be created by the community containing other plugins. If the repository is good enough and has multiple cool plugins it will be added in the plugin fetch utility as a [community] repository. Also note that the repo's should not contain multiple plugins with the same id. If present the repository to have being fetched the same pluginId
 will win.
-
-> [!CAUTION]
-> The plugin system is currently being developed so the automatic installation of plugins has not been implemented in the shell yet.
