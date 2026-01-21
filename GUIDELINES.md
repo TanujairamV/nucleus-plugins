@@ -62,6 +62,20 @@ QtObject {
   "img": "https://example.com/preview.png" # This should be a url (tip: use github urls)
 }
 ```
+## Initiating other files from the plugin directory
+Currently if you try to import or iniatiate a file like this in Main.qml or any other file you'll see a error like:
+```qml
+qrc:/Main.qml:XX:XX: File(The Other Initiated file) is not a type
+```
+to fix this problem you can add this into each file which initiates other types:
+```qml
+property string pluginPath: Directories.shellPlugins + "/nucleus-shell/plugins/examplePlugin"
+
+Component.onCompleted: {
+    Qt.application.engine.addImportPath(pluginPath)
+}
+```
+
 ## Overriding Shell's Modules
 * If you want to create plugins like: Better-PowerMenu, Better-Bar etc.
 
