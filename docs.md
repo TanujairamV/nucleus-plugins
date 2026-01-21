@@ -1,3 +1,4 @@
+
 # Plugin Documentation
 
 This document will explain how to create your own plugin.
@@ -69,10 +70,16 @@ qrc:/Main.qml:XX:XX: File(The Other Initiated file) is not a type
 ```
 to fix this problem you can add this into each file which initiates other types:
 ```qml
-property string pluginPath: Directories.shellPlugins + "/nucleus-shell/plugins/examplePlugin"
+property string pluginPath: Directories.shellConfig + "/plugins/examplePlugin"
 
 Component.onCompleted: {
     Qt.application.engine.addImportPath(pluginPath)
+}
+```
+but there is a chance that this might not work realiably also try using loaders with explicit file paths:
+```qml
+Loader {
+   source: Directories.shellConfig + "/plugins/example/File.qml"
 }
 ```
 
