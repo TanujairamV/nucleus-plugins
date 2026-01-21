@@ -88,15 +88,16 @@ import qs.services // For Contracts
 Scope {
     Component.onCompleted: { // This is not reactive use Connections to override reactively
         Contracts.overrideBar()
-	// you can make a function something like this to make override functions reactive:
-        /*
-	function overrideReactively() {
-		if (!Config.plugins.exampleBetterBarPluginId() {
-			return
-		Contracts.overrideBar();
-	}
-	*/
     }
+}
+```
+
+To override only if module enabled:
+```qml
+function overrideReactively() {
+	if (!Config.plugins.exampleBetterBarPluginId() {
+		return
+	Contracts.overrideBar();
 }
 ```
 
@@ -110,7 +111,6 @@ All the supported override functions:
     Contracts.overrideNotifications();
     Contracts.overrideBackground();
     Contracts.overrideSidebarRight();
-    
     // Overriding any ipc's or globals is not allowed (including settings application)
 ```
 
