@@ -5,7 +5,7 @@ This document will explain how to create your own plugin.
 
 ## Plugin Structure
 * All the plugins are stored/installed at `~/.config/nucleus-shell/plugins`
-* Each plugin should consist of these five files: `Main.qml`, `PluginConfigData.qml`, `Settings.qml`, `preview.png/jpg/jpeg` and `manifest.json`
+* Each plugin should consist of these five files: `Main.qml`, `PluginConfigData.qml`, `Settings.qml` and `manifest.json`
 * If any of these files are not present the plugin will not work or break.
 
 ## File Data
@@ -60,7 +60,7 @@ QtObject {
   "version": "0.1.0",
   "author": "unknown",
   "description": "A example plugin",
-  "img": "https://example.com/preview.png" # This should be a url (tip: use github urls)
+  "requires_nucleus": ">=1.2.3" # Examples: >0.2.1, >=0.4.0, =0.5.1
 }
 ```
 ## Initiating other files from the plugin directory
@@ -114,6 +114,7 @@ All the supported override functions:
     Contracts.overridePowermenu();
     Contracts.overrideLauncher();
     Contracts.overrideOverlays();
+    Contracts.overrideSidebarLeft();
     Contracts.overrideLockScreen();
     Contracts.overrideNotifications();
     Contracts.overrideBackground();
